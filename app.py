@@ -21,7 +21,10 @@ from langchain_community.vectorstores import FAISS
 from langchain.chains.retrieval_qa.base import RetrievalQA
 
 # Bedrock Client
-bedrock = boto3.client(service_name='bedrock-runtime') # service name
+bedrock = boto3.client(
+    service_name='bedrock-runtime',
+    region_name='ap-south-1'  
+)
 bedrock_embeddings = BedrockEmbeddings(model_id="amazon.titan-embed-text-v2:0", client=bedrock)
 
 # Data ingestion
