@@ -154,8 +154,8 @@ def get_response_llm(llm_func, vectorstore_faiss, query):
 
 
 def main():
-    st.set_page_config(page_title="LLM App", page_icon=":guardsman:", layout="wide")
-    st.header("LLM App")
+    st.set_page_config(page_title="BedrockReacder", page_icon=":page_facing_up:", layout="wide")
+    st.header("BedrockReacder")
     
     user_question = st.text_input("Ask a question about the document:") 
     
