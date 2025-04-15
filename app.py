@@ -124,20 +124,20 @@ PROMPT = PromptTemplate(
     input_variables=["context", "question"]
 )
 
-def get_response_llm(llm, vectorstore_faiss, query):
-    qa = RetrievalQA.from_chain_type(
-        llm=llm,
-        chain_type="stuff",
-        retriever=vectorstore_faiss.as_retriever(
-            search_type="similarity",
-            search_kwargs={"k": 1}
-        ),
-        return_source_documents=True,
-        chain_type_kwargs={"prompt": PROMPT}
-    )
+# def get_response_llm(llm, vectorstore_faiss, query):
+#     qa = RetrievalQA.from_chain_type(
+#         llm=llm,
+#         chain_type="stuff",
+#         retriever=vectorstore_faiss.as_retriever(
+#             search_type="similarity",
+#             search_kwargs={"k": 1}
+#         ),
+#         return_source_documents=True,
+#         chain_type_kwargs={"prompt": PROMPT}
+#     )
     
-    answer = qa({"query": query})
-    return answer["result"]
+#     answer = qa({"query": query})
+#     return answer["result"]
 
 def get_response_llm(llm_func, vectorstore_faiss, query):
     retriever = vectorstore_faiss.as_retriever(
